@@ -1,19 +1,19 @@
 <h1><%= @list.name %></h1>
 
-<% if @movies.length > 0 %>
+<% if @list.movies.length > 0 %>
   <p>Check all movies in your list:</p>
 
   <ul>
-    <% @movies.each do |movie| %>
-      <li><%= movie.title%></li>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li><%= bookmark.movie.title%> | <%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" } %></li>
     <% end %>
   </ul>
 <% else %>
   <p>You do not have any movie in your list.</p>
 <% end %>
 
-<%# TODO: user can add a new bookmark (movie/list pair) to an existing list %>
 <p>
+  <%# TODO: user can add a new bookmark (movie/list pair) to an existing list %>
   <%= link_to "Add a new film", new_list_bookmark_path(@list), class: "btn btn-info"%>
   <%= link_to "Delete", list_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-info" %>
   <%= link_to "Go back to all list", lists_path, class: "btn btn-info"%>
