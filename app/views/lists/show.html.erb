@@ -1,0 +1,20 @@
+<h1><%= @list.name %></h1>
+
+<% if @movies.length > 0 %>
+  <p>Check all movies in your list:</p>
+
+  <ul>
+    <% @movies.each do |movie| %>
+      <li><%= movie.title%></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>You do not have any movie in your list.</p>
+<% end %>
+
+<%# TODO: user can add a new bookmark (movie/list pair) to an existing list %>
+<p>
+  <%= link_to "Add a new film", new_list_bookmark_path(@list), class: "btn btn-info"%>
+  <%= link_to "Delete", list_path(@list), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-info" %>
+  <%= link_to "Go back to all list", lists_path, class: "btn btn-info"%>
+</p>

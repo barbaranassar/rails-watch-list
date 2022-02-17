@@ -1,0 +1,19 @@
+<h1>Chill out and watch movies</h1>
+
+<p>Create a list and organize movies by your preference</p>
+<%= link_to "Create a new list", new_list_path, class: "btn btn-info" %>
+
+
+<div class="mt-5">
+<p>Those are the lists that you already created:</p>
+  <div>
+    <% @lists.each do |list| %>
+      <div>
+        <%# <div></div> %>
+        <div>
+          <%= link_to list.name, list_path(list) %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
