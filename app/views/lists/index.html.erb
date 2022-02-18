@@ -9,11 +9,17 @@
   <div>
     <% @lists.each do |list| %>
       <div>
-        <%# <div></div> %>
-        <div>
+        <%# <div> %>
+          <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
           <%= link_to list.name, list_path(list) %>
-        </div>
+        <%# </div> %>
       </div>
     <% end %>
   </div>
 </div>
+
+<%= cl_image_tag("kxtptt99oxxig1gzbect",
+      width: 400, height: 250, crop: :fill) %>
+
+<%= cl_image_tag("injywyeh7okvwufkxmgp",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
